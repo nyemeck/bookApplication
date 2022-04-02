@@ -15,7 +15,7 @@ class SearchBookActivity : AppCompatActivity() {
     private lateinit var recyclerViewLayoutManager: RecyclerView.LayoutManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var books = listOf<BookModel>(BookModel("moi", "toi"), BookModel("Lui", "Elle"), BookModel("Vous", "Nous"))
+        val books = listOf(BookModel("moi", "toi"), BookModel("Lui", "Elle"), BookModel("Vous", "Nous"))
         searchBookActivityBinding = ActivitySearchBookBinding.inflate(layoutInflater)
         setContentView(searchBookActivityBinding.root)
         recyclerViewLayoutManager = LinearLayoutManager(this)
