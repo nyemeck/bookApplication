@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
             name="bookItem"
-            type="ch.nyemeck.booksapplication.models.BookModel" />
+            type="ch.nyemeck.booksapplication.models.Book" />
     </data>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="3dp">
@@ -20,7 +23,8 @@
                 android:id="@+id/bookImage"
                 android:layout_width="100dp"
                 android:layout_height="80dp"
-                android:src="@android:drawable/btn_star"
+                app:loadImage="@{bookItem.thumbnail}"
+                android:src="@android:drawable/stat_notify_error"
                 />
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -39,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/bookAuthors"
-                    android:text="@{bookItem.subTitle}"
+                    android:text="@{bookItem.subtitle}"
                     />
             </LinearLayout>
 

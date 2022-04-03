@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="bookDetailsItem"
+            type="ch.nyemeck.booksapplication.models.Book" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activities.DetailsActivity">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/bookDetailsImage"
+            android:layout_width="260dp"
+            android:layout_height="320dp"
+            android:layout_gravity="center"
+            app:loadImage="@{bookDetailsItem.thumbnail}"
+            android:src="@android:drawable/stat_notify_error"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bookDetailsTitle"
+            android:text="@{bookDetailsItem.title}"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bookDetailsAuthors"
+            android:text="@{bookDetailsItem.subtitle}"
+            android:textColor="@color/black"
+            />
+
+
+    </LinearLayout>
+</layout>
