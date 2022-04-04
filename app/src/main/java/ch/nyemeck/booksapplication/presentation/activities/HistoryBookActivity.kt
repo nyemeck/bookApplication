@@ -25,6 +25,8 @@ class HistoryBookActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         historyBookActivityBinding = ActivityHistoryBookBinding.inflate(layoutInflater)
         setContentView(historyBookActivityBinding.root)
+
+        //Load details page when a book is selected from the list
         val bookAdapter = BookRecyclerViewAdapter(listOf()){
                 book ->
             val intent = Intent(this, DetailsActivity::class.java).apply{
@@ -39,6 +41,8 @@ class HistoryBookActivity : AppCompatActivity() {
             adapter = bookAdapter
             layoutManager = recyclerViewLayoutManager
         }
+
+        //Load the list of book
         historyBookViewModel.getBooks()
         historyBookViewModel.booksMutableLiveData.observe(this, Observer {
             bookList ->

@@ -27,7 +27,10 @@ class SearchBookActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val bookRecyclerViewAdapter = BookRecyclerViewAdapter(listOf()){
             book ->
+            //Insert the selected book in the database
             searchBookViewModel.insert(book)
+
+            //Load details page when a book is selected from the list
             val intent = Intent(this, DetailsActivity::class.java).apply{
                 putExtra(EXTRA_BOOK_TITLE,book.title)
                 putExtra(EXTRA_BOOK_SUBTITLE,book.subtitle)
@@ -37,6 +40,8 @@ class SearchBookActivity : AppCompatActivity() {
         }
         searchBookActivityBinding = ActivitySearchBookBinding.inflate(layoutInflater)
         setContentView(searchBookActivityBinding.root)
+
+        //Initialise the recycler view adapter and load book when they are available
         recyclerViewLayoutManager = LinearLayoutManager(this)
         searchBookActivityBinding.recyclerViewBookList.apply {
             adapter = bookRecyclerViewAdapter
@@ -46,12 +51,15 @@ class SearchBookActivity : AppCompatActivity() {
             bookList -> bookRecyclerViewAdapter.swapDataSet(bookList)
         })
 
+        //Fetch the book from the server according to user input text
         searchBookActivityBinding.imageButtonBookSearchId.setOnClickListener { _->
             val text = searchBookActivityBinding.editTextBookSearchId.text.toString()
             if(text.isNotEmpty()){
                 searchBookViewModel.search(text)
             }
         }
+
+        //Load History
         searchBookActivityBinding.buttonHistory.setOnClickListener {
             val intent = Intent(this, HistoryBookActivity::class.java)
             this.startActivity(intent)
