@@ -1,7 +1,7 @@
 package ch.nyemeck.booksapplication.di
 
 import ch.nyemeck.booksapplication.network.BookService
-import ch.nyemeck.booksapplication.network.model.BookDtoMapper
+import ch.nyemeck.booksapplication.network.model.BookNetworkMapper
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -18,8 +18,8 @@ import javax.inject.Singleton
 object NetworkModule{
     @Singleton
     @Provides
-    fun provideBookMapper():BookDtoMapper{
-        return BookDtoMapper()
+    fun provideBookMapper():BookNetworkMapper{
+        return BookNetworkMapper()
     }
 
     @Singleton

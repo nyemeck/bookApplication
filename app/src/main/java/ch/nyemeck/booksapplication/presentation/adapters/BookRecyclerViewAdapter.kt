@@ -1,18 +1,19 @@
-package ch.nyemeck.booksapplication.adapters
+package ch.nyemeck.booksapplication.presentation.adapters
 
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ch.nyemeck.booksapplication.activities.DetailsActivity
 import ch.nyemeck.booksapplication.databinding.BookLayoutItemBinding
-import ch.nyemeck.booksapplication.models.Book
+import ch.nyemeck.booksapplication.presentation.models.Book
 
 const val EXTRA_BOOK_TITLE = "book_title"
 const val EXTRA_BOOK_SUBTITLE = "book_subtitle"
 const val EXTRA_BOOK_THUMBNAIL = "book_thumbnail"
-class BookRecyclerViewAdapter(private var books: List<Book>):RecyclerView.Adapter<BookRecyclerViewAdapter.BookViewHolder>(){
+class BookRecyclerViewAdapter(
+    private var books: List<Book>,
+    private var itemListener: (book: Book)->Unit
+    ):RecyclerView.Adapter<BookRecyclerViewAdapter.BookViewHolder>(){
+
 
     inner class BookViewHolder(private val bookLayoutItem: BookLayoutItemBinding): RecyclerView.ViewHolder(bookLayoutItem.root){
         fun bind(myBookItem : Book){
@@ -30,13 +31,14 @@ class BookRecyclerViewAdapter(private var books: List<Book>):RecyclerView.Adapte
         val myBook = books[position]
         holder.bind(myBook)
         holder.itemView.setOnClickListener {view->
-            val context = view.context
+            itemListener(myBook)
+            /*val context = view.context
             val intent = Intent(context, DetailsActivity::class.java).apply{
                 putExtra(EXTRA_BOOK_TITLE,myBook.title)
                 putExtra(EXTRA_BOOK_SUBTITLE,myBook.subtitle)
                 putExtra(EXTRA_BOOK_THUMBNAIL,myBook.thumbnail)
             }
-            context.startActivity(intent)
+            context.startActivity(intent)*/
         }
     }
 

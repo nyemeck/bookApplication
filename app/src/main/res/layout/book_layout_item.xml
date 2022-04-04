@@ -6,7 +6,7 @@
     <data>
         <variable
             name="bookItem"
-            type="ch.nyemeck.booksapplication.models.Book" />
+            type="ch.nyemeck.booksapplication.presentation.models.Book" />
     </data>
 
     <androidx.cardview.widget.CardView

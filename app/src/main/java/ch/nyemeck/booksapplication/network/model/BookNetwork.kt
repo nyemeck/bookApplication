@@ -2,7 +2,7 @@ package ch.nyemeck.booksapplication.network.model
 
 import com.google.gson.annotations.SerializedName
 
-data class BookDto(
+data class BookNetwork(
     @SerializedName("id")
     var id: String,
 

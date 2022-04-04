@@ -6,14 +6,14 @@
     <data>
         <variable
             name="bookDetailsItem"
-            type="ch.nyemeck.booksapplication.models.Book" />
+            type="ch.nyemeck.booksapplication.presentation.models.Book" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".activities.DetailsActivity">
+        tools:context=".presentation.activities.DetailsActivity">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/bookDetailsImage"
             android:layout_width="260dp"

@@ -15,10 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BooksApplication">
         <activity
-            android:name=".activities.DetailsActivity"
+            android:name="ch.nyemeck.booksapplication.presentation.activities.HistoryBookActivity"
+            android:exported="false" />
+        <activity
+            android:name="ch.nyemeck.booksapplication.presentation.activities.DetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.SearchBookActivity"
+            android:name="ch.nyemeck.booksapplication.presentation.activities.SearchBookActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

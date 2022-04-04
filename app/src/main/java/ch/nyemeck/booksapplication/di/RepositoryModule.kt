@@ -1,7 +1,9 @@
 package ch.nyemeck.booksapplication.di
 
+import ch.nyemeck.booksapplication.database.BookDao
+import ch.nyemeck.booksapplication.database.BookDatabaseMapper
 import ch.nyemeck.booksapplication.network.BookService
-import ch.nyemeck.booksapplication.network.model.BookDtoMapper
+import ch.nyemeck.booksapplication.network.model.BookNetworkMapper
 import ch.nyemeck.booksapplication.repository.BookRepository
 import ch.nyemeck.booksapplication.repository.BookRepositoryImpl
 import dagger.Module
@@ -17,10 +19,15 @@ class RepositoryModule {
     @Provides
     fun provideBookRepository(
         bookService: BookService,
-        bookDtoMapper: BookDtoMapper
+        bookDao: BookDao,
+        bookNetworkMapper: BookNetworkMapper,
+        bookDatabaseMapper: BookDatabaseMapper
     ) : BookRepository{
         return BookRepositoryImpl(
-            bookService, bookDtoMapper
+            bookService,
+            bookDao,
+            bookNetworkMapper,
+            bookDatabaseMapper
         )
     }
 }

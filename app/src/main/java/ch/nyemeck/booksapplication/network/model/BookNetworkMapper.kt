@@ -1,12 +1,10 @@
 package ch.nyemeck.booksapplication.network.model
 
-import android.util.Log
 import ch.nyemeck.booksapplication.domain.util.DomainMapper
-import ch.nyemeck.booksapplication.models.Book
+import ch.nyemeck.booksapplication.presentation.models.Book
 
-class BookDtoMapper : DomainMapper<BookDto, Book> {
-    override fun mapToDomainModel(model: BookDto): Book {
-        Log.d("BookDtoMapper", "mapToDomainModel model: $model")
+class BookNetworkMapper : DomainMapper<BookNetwork, Book> {
+    override fun mapToDomainModel(model: BookNetwork): Book {
         return Book(
             title = model.volumeInfo.title,
             subtitle = model.volumeInfo.subtitle?:"No subtitle",
@@ -14,15 +12,15 @@ class BookDtoMapper : DomainMapper<BookDto, Book> {
         )
     }
 
-    override fun mapFromDomainModel(domainModel: Book): BookDto {
-        return BookDto(
+    override fun mapFromDomainModel(domainModel: Book): BookNetwork {
+        return BookNetwork(
             id = domainModel.title,
             volumeInfo = VolumeInfo(title = domainModel.title, subtitle = domainModel.subtitle, imageLinks = null),
 
         )
     }
 
-    fun toDomainList(list: List<BookDto>): List<Book>{
+    fun toDomainList(list: List<BookNetwork>): List<Book>{
         return list.map { bookDto -> mapToDomainModel(bookDto)  }
     }
 

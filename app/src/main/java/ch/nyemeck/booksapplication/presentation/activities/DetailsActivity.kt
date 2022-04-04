@@ -1,12 +1,12 @@
-package ch.nyemeck.booksapplication.activities
+package ch.nyemeck.booksapplication.presentation.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import ch.nyemeck.booksapplication.adapters.EXTRA_BOOK_SUBTITLE
-import ch.nyemeck.booksapplication.adapters.EXTRA_BOOK_THUMBNAIL
-import ch.nyemeck.booksapplication.adapters.EXTRA_BOOK_TITLE
+import ch.nyemeck.booksapplication.presentation.adapters.EXTRA_BOOK_SUBTITLE
+import ch.nyemeck.booksapplication.presentation.adapters.EXTRA_BOOK_THUMBNAIL
+import ch.nyemeck.booksapplication.presentation.adapters.EXTRA_BOOK_TITLE
 import ch.nyemeck.booksapplication.databinding.ActivityDetailsBinding
-import ch.nyemeck.booksapplication.models.Book
+import ch.nyemeck.booksapplication.presentation.models.Book
 
 class DetailsActivity : AppCompatActivity() {
     private lateinit var activityDetailsBinding: ActivityDetailsBinding

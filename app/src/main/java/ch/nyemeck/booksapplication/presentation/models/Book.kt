@@ -1,4 +1,4 @@
-package ch.nyemeck.booksapplication.models
+package ch.nyemeck.booksapplication.presentation.models
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

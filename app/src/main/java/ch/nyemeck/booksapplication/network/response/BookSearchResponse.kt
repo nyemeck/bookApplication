@@ -1,6 +1,6 @@
 package ch.nyemeck.booksapplication.network.response
 
-import ch.nyemeck.booksapplication.network.model.BookDto
+import ch.nyemeck.booksapplication.network.model.BookNetwork
 import com.google.gson.annotations.SerializedName
 
 data class BookSearchResponse(
@@ -8,7 +8,7 @@ data class BookSearchResponse(
     var numberOfBooks: Int,
 
     @SerializedName("items")
-    var books: List<BookDto>
+    var books: List<BookNetwork>
 
 
 )
