@@ -4,6 +4,7 @@ _Libraries used_
 1. Hilt for dependency injection
 2. Room for database
 3. Glide to load images
+4. Coroutine by using suspend function for network call and database transaction
 
 
 _App folder architecture_
