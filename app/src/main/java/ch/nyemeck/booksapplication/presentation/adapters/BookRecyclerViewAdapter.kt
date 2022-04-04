@@ -32,13 +32,6 @@ class BookRecyclerViewAdapter(
         holder.bind(myBook)
         holder.itemView.setOnClickListener {view->
             itemListener(myBook)
-            /*val context = view.context
-            val intent = Intent(context, DetailsActivity::class.java).apply{
-                putExtra(EXTRA_BOOK_TITLE,myBook.title)
-                putExtra(EXTRA_BOOK_SUBTITLE,myBook.subtitle)
-                putExtra(EXTRA_BOOK_THUMBNAIL,myBook.thumbnail)
-            }
-            context.startActivity(intent)*/
         }
     }
 
